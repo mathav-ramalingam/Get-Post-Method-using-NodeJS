@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background-attachment: fixed;
+            background-image: url(https://miro.medium.com/v2/resize:fit:1200/0*gVJJNH7TEqRqfYhM.jpg);
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0 2%;
+        }
+
+        #form {
+            max-width: 400px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            padding-top: 30px;
+            border: 5px solid #29292b;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #ff0000;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+
+        label {
+            color: #15d2c3;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+        }
+
+        #form button {
+            background-color: #0fc4d1;
+            color: white;
+            border: 1px solid #29292b;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 20px 0px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 100%;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            border-radius: 15px;
+            font-size: 20px;
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid rgb(34, 193, 195);
+            box-sizing: border-box;
+        }
+
+        .input-group input:focus {
+            outline: 0;
+        }
+
+        @media (max-width: 600px) {
+            #form {
+                padding: 20px;
+                border-width: 3px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            label {
+                font-size: 18px;
+            }
+
+            #form button {
+                font-size: 18px;
+                padding: 8px;
+            }
+
+            .input-group input {
+                font-size: 18px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="form" action="http://localhost:7000/login" method="get">
+            <h1>Welcome back..!</h1><br>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
