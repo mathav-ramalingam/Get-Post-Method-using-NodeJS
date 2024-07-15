@@ -1,32 +1,31 @@
-const http = require('http');
-const url = require('url');
-const querystring = require('querystring');
+http=require('http');
+url=require('url');
+querystring = require('querystring');
 
-function getexample(request, response) {
-    const parsedUrl = url.parse(request.url, true);
-    const path = parsedUrl.pathname;
-    console.log(path)
-    if (path === '/login')
+function sam(request,response)
+{  
+    if(request.url.includes('/login'))
     {
-        console.log('URL ' + request.url + ' received. using get method');
-
-        const qs = parsedUrl.query;
-        console.log(qs);
-
-        const name = qs["name"];
-        const password = qs["password"];
-        response.write(`
-        <h1>Hello</h1>
-        <p>You have successfully logged in with username ${name} and check your password ${password}.</p>
-        `);
-        response.end();
-    } else {
-        response.writeHead(404, { 'Content-Type': 'text/plain' });
-        response.write('Page not found');
-        response.end();
+    console.log('URL '+request.url+' received.');
+    
+    var path = url.parse(request.url).pathname;
+    console.log('Request for '+path+' received.');
+   
+    var query =url.parse(request.url).query;
+    
+    console.log("QUERY IS:");
+    console.log(query);
+    
+    qs=querystring.parse(query);
+    console.log("QS IS:");
+    console.log(qs);
+    
+    var name = qs["name"];
+    var password=qs["password"];
+    
+    response.write("You have successfully logged in with username " + name + "and check your password " + password)
+    response.end();
     }
 }
-
-
-http.createServer(getexample).listen(7000);
-console.log('Server has Started……');
+http.createServer(sam).listen(7000);
+console.log('Server has Started…….');
